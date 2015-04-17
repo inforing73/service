@@ -1,0 +1,22 @@
+-provide(:title, 'Предоплата за ремонт')
+-provide(:description, 'Вы можете сделать предоплату к ремонту Вашего аппарата удаленно из любого места с доступом в интернет.')
+- provide(:bread, "Предоплата за услуги")
+
+.payment
+	.row
+		.col-md-6.col-md-offset-3
+			h2.text-center 
+				| При оплате через платежную систему Яндекс.Деньги взымается комиссия в размере 
+				strong 5% + 15 рублей
+			.form-group.pull-right.animated.fadeInUp
+				= form_tag pay_path, method: :get, remote: true do
+					.input-group
+						= text_field_tag :value, nil, placeholder: "Сумма предоплаты", class: "form-control" 
+						span.input-group-btn
+							= submit_tag "Посчитать",class: "btn btn-primary"
+			#payment
+	.row
+		.col-md-12
+			.text-center
+				p В назначении платежа обязательно указывать номер квитанции и Ф.И.О.
+				p Деньги можно перевести на карту сбербанка 5469 6900 1251 1656 Шалунов Павел Вячеславович.

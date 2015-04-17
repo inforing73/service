@@ -1,0 +1,239 @@
+-provide(:title, 'Ремонт ноутбуков, компьютеров, техники Apple, планшетов, телефонов')
+-provide(:description, 'Мы оказываем услуги по ремонту ноутбуков, компьютеров, планшетов, телефонов, навигаторов, игровых консолей, iPad, iPhone, Macbook как в офисе, так и на дому. Прошивка телефонов на базе Android, Windows Phone, iOS. Установка Windows, Linux, MacOS и программного обеспечения.')
+
+section.carousel-section
+  #carousel-example-generic.carousel.slide data-interval="8000" data-ride="carousel" 
+    ol.carousel-indicators
+      li.active data-slide-to="0" data-target="#carousel-example-generic" 
+      li data-slide-to="1" data-target="#carousel-example-generic" 
+      li data-slide-to="2" data-target="#carousel-example-generic"
+    .carousel-inner
+      .item.active
+        .container
+          .row
+            .col-md-6.col-sm-7
+              .carousel-caption
+                .carousel-text
+                  h1.animated.fadeInDownBig.animation-delay-7.carousel-title Профилактика системы охлаждения
+                  h2.animated.fadeInDownBig.animation-delay-5.carousel-subtitle Увеличивает срок службы вашего ноутбука!
+                  ul.list-unstyled.carousel-list
+                    li.animated.bounceInLeft.animation-delay-11
+                      i.fa.fa-check
+                      |  Чистка от пыли
+                    li.animated.bounceInLeft.animation-delay-13
+                      i.fa.fa-check
+                      |  Замена термо-интерфейсов
+                    li.animated.bounceInLeft.animation-delay-15
+                      i.fa.fa-check
+                      |  Время выполнения данной процедуры: от 30 минут
+                  p.animated.fadeInUpBig.animation-delay-17
+                    | Обращайтесь к нам! Мы обязательно поможем Вашему ноутбуку.
+            .col-md-6.col-sm-5.hidden-xs.carousel-img-wrap
+              .carousel-img
+                = image_tag "cleannotebook.png", alt: "Чистка от пыли ноутбука", class: "animated fadeIn animation-delay-3 img-responsive"  
+      .item
+        .container
+          .row
+            .col-md-6.col-sm-7
+              .carousel-caption
+                .carousel-text
+                  h1.animated.fadeInDownBig.animation-delay-7.carousel-title Срочный ремонт ноутбуков
+                  h2.animated.fadeInDownBig.animation-delay-5.carousel-subtitle Диагностика от 1 часа!
+                  ul.list-unstyled.carousel-list
+                    li.animated.bounceInLeft.animation-delay-11
+                      i.fa.fa-check
+                      |  Профессиональное оборудование
+                    li.animated.bounceInLeft.animation-delay-13
+                      i.fa.fa-check
+                      |  При замене матрицы гарантия 365 дней
+                    li.animated.bounceInLeft.animation-delay-15
+                      i.fa.fa-check
+                      |  Устранение неисправностей любой сложности
+                  p.animated.fadeInUpBig.animation-delay-17
+                    | Обращайтесь к нам! Мы обязательно поможем Вашему ноутбуку.
+            .col-md-6.col-sm-5.hidden-xs.carousel-img-wrap
+              .carousel-img
+                = image_tag "repairnotebook.png", alt: "Срочный ремонт ноутбуков", class: "animated fadeIn animation-delay-3 img-responsive" 
+      .item
+        .container
+          .row
+            .col-md-6.col-sm-7
+              .carousel-caption
+                .carousel-text
+                  h1.animated.fadeInDownBig.animation-delay-7.carousel-title Срочный ремонт iPhone
+                  h2.animated.fadeInDownBig.animation-delay-5.carousel-subtitle Вы сами определяете стоимость ремонта!
+                  ul.list-unstyled.carousel-list
+                    li.animated.bounceInLeft.animation-delay-11
+                      i.fa.fa-check
+                      |  Гарантия до 1 года!
+                    li.animated.bounceInLeft.animation-delay-13
+                      i.fa.fa-check
+                      |  Запчасти высокого качества
+                    li.animated.bounceInLeft.animation-delay-15
+                      i.fa.fa-check
+                      |  80% ремонтов в течении часа
+                  p.animated.fadeInUpBig.animation-delay-17
+                    | Обращайтесь к нам! Мы обязательно поможем Вашему iPhone.
+            .col-md-6.col-sm-5.hidden-xs.carousel-img-wrap
+              .carousel-img
+                = image_tag "repairiphone.png", alt: "Ремонт iPhone", class: "animated fadeIn animation-delay-3 img-responsive"
+    a.left.carousel-control data-slide="prev" href="#carousel-example-generic" 
+      span.fa.fa-chevron-left.fa-2x
+    a.right.carousel-control data-slide="next" href="#carousel-example-generic" 
+      span.fa.fa-chevron-right.fa-2x
+
+section.services.animated.fadeInUp.animation-delay-10
+  .container
+    .row
+      .col-md-3.col-sm-6
+        .content-box.box-default
+          a.icon-sylor.icon-sylor-lg.icon-sylor-round.icon-sylor-inverse.collapseOne href="#panel"
+            i.fa.fa-gear
+          h4.content-box-title Бесплатная диагностика
+      .col-md-3.col-sm-6
+        .content-box.box-default
+          a.icon-sylor.icon-sylor-lg.icon-sylor-round.icon-sylor-inverse.collapseTwo href="#panel"
+            i.fa.fa-truck
+          h4.content-box-title Бесплатная доставка
+      .col-md-3.col-sm-6
+        .content-box.box-default
+          a.icon-sylor.icon-sylor-lg.icon-sylor-round.icon-sylor-inverse.collapseThree href="#panel"
+            i.fa.fa-car
+          h4.content-box-title Выезд мастера
+      .col-md-3.col-sm-6
+        .content-box.box-default
+          a.icon-sylor.icon-sylor-lg.icon-sylor-round.icon-sylor-inverse.collapseFour href="#panel"
+            i.fa.fa-star
+          h4.content-box-title Гарантия качества
+
+section.welcome
+  .container
+    .row
+      .col-md-4.text
+        h3 Добро пожаловать!
+        p Мы осуществляем ремонт любой сложности компьютеров, ноутбуков, техники Apple (iPhone, iPad, MacBook), электронных книг, смартфонов, SIP телефонов, игровых приставок, мониторов, телевизоров, сетевого оборудования, навигаторов, видеорегистраторов, оргтехники. Мы находимся: г.Ульяновск, ул.Льва Толстого д.60.
+        ul.icon-devices
+          li.active
+            = link_to "#desktop", "data-toggle" => "tab" do
+              i.fa.fa-desktop
+          li
+            = link_to "#laptop", "data-toggle" => "tab" do 
+              i.fa.fa-laptop
+          li
+            = link_to "#tablet", "data-toggle" => "tab" do
+              i.fa.fa-tablet
+          li
+            = link_to "#mobile", "data-toggle" => "tab" do
+              i.fa.fa-mobile
+          li
+            a= link_to "#console", "data-toggle" => "tab" do 
+              i.fa.fa-gamepad
+          li
+            = link_to "#navigator", "data-toggle" => "tab" do 
+              i.fa.fa-location-arrow
+          li
+            = link_to "#printer", "data-toggle" => "tab" do
+              i.fa.fa-print
+      .col-md-8.img
+        .tab-content
+          #desktop.tab-pane.active
+            = link_to image_tag("desktop.png", alt: "Ремонт компьютеров", class: "img-responsive"), repair_path(3), target: "_top"
+          #laptop.tab-pane
+            = link_to image_tag("laptop.png", alt: "Ремонт ноутбуков", class: "img-responsive"), repair_path(4), target: "_top" 
+          #tablet.tab-pane
+            = link_to image_tag("tablet.png", alt: "Ремонт планшетов", class: "img-responsive"), repair_path(5), target: "_top"
+          #mobile.tab-pane
+            = link_to image_tag("mobile.png", alt: "Ремонт телефонов", class: "img-responsive"), repair_path(2), target: "_top"
+          #console.tab-pane
+            = link_to image_tag("console.png", alt: "Ремонт игровых консолей", class: "img-responsive"), repair_path(6), target: "_top"
+          #navigator.tab-pane
+            = link_to image_tag("navigator.png", alt: "Ремонт навигаторов", class: "img-responsive"), repair_path(5), target: "_top"
+          #printer.tab-pane
+            = link_to image_tag("printer.png", alt: "Ремонт принтеров", class: "img-responsive"), repair_path(7), target: "_top"
+
+.container
+  section#about.about
+    p.lead.text-center
+      | Узнай о
+      strong  Inforing Service
+      |  и будешь удивлен
+    .row
+      .col-md-6
+        h2 О компании
+        p Наш опыт работы на рынке более 12 лет. В Ульяновске с 2012 года и уже за это время у нас прошли практику более 10 студентов, отремонтировано более 5000 техники, обслуживаем и помогаем в работе более 50 фирмам.
+        p Также мы не останавливаемся на ремонте стандартной техники частных лиц и готовы помочь предприятиям, фирмам, которые столкнулись с трудностью в ремонте своего электронно-цифрового оборудования. 
+      .col-md-6#panel
+        #accordion.panel-group
+          .panel.panel-default
+            .panel-heading.plus
+              = link_to "#collapseOne", class: "collapsed", "data-toggle" => "collapse", "data-parent" => "#accordion" do
+                i.fa.fa-gear
+                | Бесплатная диагностика
+            #collapseOne.panel-collapse.collapse
+              .panel-body
+                p В нашей компании диагностика Вашей техники абсолютно бесплатная, даже в случае отказа от ремонта.
+                p Мы не зарабатываем на мнимой диагностике из-за чего качество выполненных работ и квалификация наших инженеров остается на высоком уровне.
+          .panel.panel-default
+            .panel-heading.plus
+              = link_to "#collapseTwo", class: "collapsed", "data-toggle" => "collapse", "data-parent" => "#accordion" do
+                i.fa.fa-truck
+                | Бесплатная доставка
+            #collapseTwo.panel-collapse.collapse
+              .panel-body
+                P
+                  | Условия работы службы по доставке:
+                  ul
+                    li Вы можете воспользоваться услугами бесплатной курьерской службы для доставки  ноутбука в сервис-центр и обратно.
+                    li Доставка осуществляется в пределах города.
+                    li 
+                      | Вам необходимо позвонить в сервис-центр 
+                      strong по телефону 680-780 
+                      |  и оформить заявку. 
+                    li Оператор зафиксирует вашу заявку в базе данных.
+                    li Служба доставки свяжется с вами и согласует удобное для вас время приезда курьера.
+          .panel.panel-default
+            .panel-heading.plus
+              = link_to "#collapseThree", class: "collapsed", "data-toggle" => "collapse", "data-parent" => "#accordion" do
+                i.fa.fa-car
+                | Выезд мастера
+            #collapseThree.panel-collapse.collapse
+              .panel-body
+                p 
+                  | Вам не надо никуда ехать и тащить с собой системный блок, а потом ещё и возвращаться за ним в сервисный центр. Всего один телефонный звонок или
+                  = link_to " отправка заявки ", contact_path 
+                  | через Интернет — и уже в назначенное время специалист стоит на пороге вашего дома и немедленно приступает к работе. И тут не вы будете подстраиваться под кого-то, а будете определять, в какой день и в какое время необходимо будет произвести ремонт.
+                p Также не следует забывать про гарантию, которую выдают специалисты после произведённого ремонта.
+          .panel.panel-default
+            .panel-heading.plus
+              = link_to "#collapseFour", class: "collapsed", "data-toggle" => "collapse", "data-parent" => "#accordion" do
+                i.fa.fa-star
+                | Гарантия и качество
+            #collapseFour.panel-collapse.collapse
+              .panel-body
+                p Мы даем гарантию на все выполненные работы и даже на аппараты, восстановленные после попадания влаги.
+
+  section.slogan
+    p.text-center
+      | У нас за спиной более
+      span  12 лет опыта работы
+      | .
+      |  За
+      span  2 года
+      |  работы в Ульяновске мы отремонтировали более
+      span  4000 аппаратов
+      | .
+  /section.clients
+    h2.section-title Наши клиенты
+    .row
+      .col-md-12
+        .row
+          .col-md-2.col-sm-2.col-xs-4
+            = image_tag "sollers-logo.png", alt: "Принтеры", class: "img-responsive"
+          .col-md-2.col-sm-2.col-xs-4
+            = image_tag "husqvarna-logo.png", alt: "Принтеры", class: "img-responsive"
+          .col-md-2.col-sm-2.col-xs-4
+            h3.text-center
+              | Ульяновский областной суд
+          
+
+    

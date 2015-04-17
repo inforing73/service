@@ -1,0 +1,2 @@
+$('#newService').html("<%= escape_javascript(render partial: 'services/new_modal', locals: { :@item => @item}) %>");
+$('#newServiceModal').modal('show');

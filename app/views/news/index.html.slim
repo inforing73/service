@@ -1,0 +1,16 @@
+-provide(:title, 'Новости')
+-provide(:description, 'Мы оказываем услуги по ремонту ноутбуков, компьютеров, планшетов, телефонов, навигаторов, игровых консолей, iPad, iPhone, Macbook как в офисе, так и на дому. Прошивка телефонов на базе Android, Windows Phone, iOS. Установка Windows, Linux, MacOS и программного обеспечения.')
+- provide(:bread, "Новостная лента")
+
+.posts
+	.row
+			.col-md-12.text-center
+				- if admin?
+					= link_to new_news_path, remote: true, class: "text-center" do
+						i.fa.fa-plus.fa-5x
+	#showNews	
+		= render 'news/show_news'
+	.text-center
+		= will_paginate @show_news
+#newNews
+#editNews

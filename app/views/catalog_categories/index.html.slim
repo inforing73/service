@@ -1,0 +1,11 @@
+.categories
+	#categoryIndex
+		= render 'catalog_categories/category_index'
+	.row
+		.col-md-12.text-center
+			- if admin?
+				= link_to new_catalog_category_path(method: :get),remote: true, target: "_top" do
+					i.fa.fa-plus.fa-5x
+
+#newCategory
+#editCategory

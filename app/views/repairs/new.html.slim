@@ -1,0 +1,18 @@
+- provide(:bread, "Паша, добавь ремонт!")
+
+.repairs
+	.new
+		= form_for(@repair) do |f|
+			.container
+				.row
+					.col-md-6.col-md-offset-3
+						.form-group
+								= f.text_field :title, class: "form-control", placeholder: "Название"
+						.form-group
+							= f.text_area :description, class: "form-control", placeholder: "Описание"
+						.form-group
+							= f.text_field :bread, class: "form-control", placeholder: "Заглавие"
+						.form-group
+							= f.file_field :image, class: "form-control"
+							= f.submit "Создать", class: "btn btn-ar btn-primary" 
+						.clearfix

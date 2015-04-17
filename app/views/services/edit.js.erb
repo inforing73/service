@@ -1,0 +1,2 @@
+$('#editService').html("<%= escape_javascript(render partial: 'services/edit_modal', locals: {:@service => @service, :@item => @item}) %>");
+$('#editServiceModal').modal('show');

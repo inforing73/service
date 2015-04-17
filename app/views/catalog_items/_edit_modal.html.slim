@@ -1,0 +1,19 @@
+#editItemModal.modal.fade aria-hidden="true" aria-labelledby="editItemModalLabel" role="dialog" tabindex="-1" 
+	.modal-dialog.modal-lg
+		.modal-content
+			.modal-header
+				button.close aria-hidden="true" data-dismiss="modal" type="button"  ×
+				h4#editItemModalLabel.modal-title Редактировать товар
+			= form_for(@item,method: :put, remote: true, multipart: true) do |f|
+				.modal-body
+					= f.text_field :title, class: "form-control"
+					= f.text_area :description, rows: "10", class: "form-control"
+					= f.text_field :price, class: "form-control"
+		            = f.text_field :article, class: "form-control"
+					= collection_select(:catalog_item, :catalog_category_id, CatalogCategory.all, :id, :title, {:prompt => true, :selected => @item.catalog_category.id},{class: "form-control"})
+					#itemImages
+						= render "catalog_items/item_images"
+					= file_field_tag 'images[]',multiple: true, class: "form-control"
+				.modal-footer
+					= submit_tag "Подтвердить", class: "btn btn-primary pull-left", :disable_with => "Пожалуйста подождите.." 
+					button.btn.btn-ar.btn-default data-dismiss="modal" type="button"  Закрыть

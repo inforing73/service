@@ -1,0 +1,137 @@
+- provide(:title, @repair.title)
+- provide(:description, @repair.description)
+- provide(:bread, @repair.bread)
+
+.repair
+	.container
+		.row
+			.col-md-12.col-xs-12 
+				h2.right-line 
+					| #{@repair.title}
+					- if admin?  
+						= link_to "#", "data-target" => "#editRepairModal", "data-toggle" => "modal" do
+							i.fa.fa-pencil
+						= link_to repair_path(@repair), method: :delete, data: { confirm: "Вы уверены удалить ремонт #{@repair.title}?" } do
+							i.fa.fa-times
+				p.lead.lead-lg.text-center #{@repair.description}
+		.row
+			#priceCarousel.carousel.slide data-ride="carousel"
+				- if admin? 
+					.text-center
+						= link_to new_item_path(repair_id: @repair.id), remote: true do
+							i.fa.fa-plus.fa-3x
+				ul.nav.nav-pills.nav-justified
+					- @count = 0
+					- @items.each do |i|
+						= content_tag :li, :class => ("active" if @count == 0;) , "data-slide-to" => "#{@count}", :"data-target" => "#priceCarousel" do
+							= link_to "#" do
+								= i.title
+								- if admin?
+									= link_to edit_item_path(i), remote: true do 
+										 i.fa.fa-pencil
+									= link_to item_path(i), method: :delete, remote: true, data: { confirm: "Вы уверены удалить вид ремонта #{i.title}?" } do
+										i.fa.fa-times
+							- @count += 1
+					- @count = 0
+
+				.carousel-inner
+					- @items.order('created_at ASC').each do |i|
+						div class = "#{count_tag(@count)}"
+							.col-md-4.col-sm-4.col-xs-4.col
+								.pricing.description
+									.head
+										h3.title Услуги
+									ul.content
+										- i.services.order('created_at ASC').each do |s|
+											li.service_id
+												= s.title
+												- if admin?
+													= link_to edit_service_path(s, item_id: i.id), remote: true do 
+														i.fa.fa-pencil
+													= link_to service_path(s, item_id: i.id), method: :delete, remote: true, data: { confirm: "Вы уверены удалить услугу #{s.title}?" } do
+														i.fa.fa-times
+													= link_to "#", class: "invisible", remote: true do 
+														i.fa.fa-pencil
+												- else
+													= link_to "#", class: "invisible", remote: true do 
+														i.fa.fa-pencil
+
+
+
+							.col-md-8.col-sm-8.col-xs-8.col
+								.head
+									h3.title.invisible
+										= i.title
+								
+						
+							- i.models.order('created_at ASC').each do |m|
+								div class = "col-md-8 col-xs-8 col" style = "#{col_tag(i.models)}"
+										.pricing
+											.head
+												h3.price   
+													= m.title  
+													- if admin?
+														= link_to edit_model_path(m, item_id: i.id), remote: true do 
+															i.fa.fa-pencil
+														= link_to model_path(m, item_id: i.id), method: :delete, remote: true, data: { confirm: "Вы уверены удалить модель #{m.title}?" } do
+															i.fa.fa-times
+											ul.content
+												- m.services.order('created_at ASC').each do |s|  
+													li.price_id
+														= find_price(m,s)
+
+							- if admin?
+								.text-center
+									= link_to new_model_path(item_id: i.id), remote: true do
+										| Добавить столбик
+										i.fa.fa-plus 
+									= link_to new_service_path(item_id: i.id), remote: true do
+										| Добавить строчку
+										i.fa.fa-plus 
+
+						- @count += 1                     
+
+		- if current_page?(repair_path(7))
+			.row
+				.col-xs-12 
+					p.lead.lead-lg.text-center
+						| *Техническое обслуживание (сервисное обслуживание, профилактика, извлечение посторонних, с частичным разбором аппарата).
+					p.lead.lead-lg.text-center
+						| **Ремонт первой категории (замена съемных узлов, изменение параметров настройки, с частичным разбором аппарата).
+					p.lead.lead-lg.text-center
+						| ***Ремонт второй категории (замена дефектных модулей/узлов, внутренняя техническая регулировка, изменение сервисных параметров настройки, с блочным разбором аппарата).
+					p.lead.lead-lg.text-center
+						| ****Ремонт третьей категории (устранение "плавающих" неисправностей, замена комплектующих в модулях/узлах, полная разборка аппарата).
+					
+/ Modal			
+
+#editRepairModal.modal.fade aria-hidden="true" aria-labelledby="editRepairModalLabel" role="dialog" tabindex="-1" 
+	.modal-dialog.modal-sm
+		.modal-content
+			.modal-header
+				button.close aria-hidden="true" data-dismiss="modal" type="button"  ×
+				h4#editRepairModalLabel.modal-title Редактирование ремонта
+			= form_for(@repair,remote: true, method: :put, multipart: true) do |f|
+				.modal-body
+					= f.text_field :title, class: "form-control"
+					= f.text_area :description, class: "form-control"
+					= f.text_field :bread, class: "form-control"
+					= f.file_field :image, class: "form-control"
+				.modal-footer
+					button.btn.btn-ar.btn-default data-dismiss="modal" type="button"  Закрыть
+					= f.submit "Подтвердить", class: "btn btn-primary pull-left", :disable_with => "Пожалуйста подождите.."
+
+#newItem
+#editItem
+#newService
+#editService
+#newModel
+#editModel
+
+
+
+
+						 
+							
+				
+								

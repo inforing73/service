@@ -1,0 +1,15 @@
+#editModelModal.modal.fade aria-hidden="true" aria-labelledby="editModelModalLabel" role="dialog" tabindex="-1" 
+	.modal-dialog.modal-sm
+		.modal-content
+			.modal-header
+				button.close aria-hidden="true" data-dismiss="modal" type="button"  ×
+				h4#editModelModalLabel.modal-title Редактирование модели
+			= form_tag model_path(@model),method: :put, remote: true do
+				.modal-body
+					= text_field_tag :title, @model.title, class: "form-control"
+					= hidden_field_tag :item_id, @item.id, class: "form-control"
+					- @item.services.order('created_at DESC').each do |s|
+						= text_field_tag "services[#{s.id}]",find_price(@model, s), class: "form-control"
+				.modal-footer
+					= submit_tag "Подтвердить", class: "btn btn-primary pull-left", :disable_with => "Пожалуйста подождите.." 
+					button.btn.btn-ar.btn-default data-dismiss="modal" type="button"  Закрыть

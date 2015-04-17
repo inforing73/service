@@ -1,0 +1,14 @@
+.container
+	.category
+		#categoryShow
+			= render 'catalog_categories/category_show'
+		.text-center
+			= will_paginate @items
+		.row
+			.col-md-12.text-center
+				- if admin?
+					= link_to new_catalog_item_path(category_id: @category.id), remote: true, target: "_top" do
+						i.admin-icon.fa.fa-plus.fa-5x
+#newItem
+#editItem
+

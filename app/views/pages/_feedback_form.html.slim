@@ -1,0 +1,13 @@
+p Оставьте нам сообщение и наш менеджер обязательно с Вами свяжется.
+= form_tag feedback_path, method: :get,remote: true do 
+	.form-group
+		= label_tag :name, "Имя"
+		= text_field_tag :name, nil, class: "form-control"
+	.form-group
+		= label_tag :email, "E-mail или телефон"
+		= text_field_tag :email, nil, class: "form-control"
+	.form-group
+		= label_tag :text, "Сообщение"
+		= text_area_tag :text, nil, rows: "6", class: "form-control"
+	= submit_tag "Отправить", class: "btn btn-ar btn-primary" 
+	.clearfix

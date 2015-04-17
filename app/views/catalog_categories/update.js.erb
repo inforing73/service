@@ -1,0 +1,4 @@
+$('#editCategoryModal').modal('hide');
+$('body').removeClass('modal-open');
+$('.modal-backdrop').remove();
+$('#categoryIndex').html("<%= escape_javascript(render partial: 'catalog_categories/category_index', locals: {:@categories => @categories}) %>");

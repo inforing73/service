@@ -1,0 +1,35 @@
+doctype html
+html
+  head
+    title = full_title(yield(:title))
+    = content_tag(:meta, nil, name: 'description', content: yield(:description))
+    = content_tag(:meta, nil, name: 'viewport', content: 'width=device-width, initial-scale=1')
+    = content_tag(:meta, nil, name: 'geo.country', content: 'ru')
+    = content_tag(:meta, nil, name: 'geo.placename', content: 'Ulyanovsk')
+    
+    = favicon_link_tag 'favicon.ico'
+    = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
+    = javascript_include_tag "application", "data-turbolinks-track" => true
+    = csrf_meta_tags
+
+    = render 'layouts/shim'
+    = render 'layouts/google'
+    = render 'layouts/yandex'
+  body
+    = render 'layouts/preloader'
+    - unless current_page?(sign_in_path)
+      #wrap
+        = render 'layouts/header'
+        = render 'layouts/navigation'
+        #flash
+           = render 'shared/flash_messages'
+        #bread  
+          = is_root?()
+        = yield
+        
+        = render 'layouts/footer'
+        = render 'layouts/upper'
+      = render 'layouts/slidebar'
+    - else
+      = yield
+

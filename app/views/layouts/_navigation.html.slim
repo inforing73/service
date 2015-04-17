@@ -1,0 +1,20 @@
+nav.navbar.navbar-default.navbar-static-top role="navigation"
+  .container
+    .navbar-header
+      button.navbar-toggle data-target="#bs-example-navbar-collapse-1" data-toggle="collapse" type="button" 
+        span.sr-only Toggle navigation
+        i.fa.fa-bars
+      = link_to root_path, class: 'navbar-brand hidden-lg hidden-md hidden-sm' do
+        | Inforing
+        span Service
+    .pull-right
+      = link_to 'javascript:void(0);', class: 'icon-navbar slidebar-toggle-right' do
+        i.fa.fa-bars
+    #bs-example-navbar-collapse-1.collapse.navbar-collapse
+      ul.nav.navbar-nav.navbar-
+        = nav_link 'Главная', root_path
+        = nav_link 'Контакты', contact_path
+        = nav_dropdown_link 'Цены', repairs_path, @repairs
+        = nav_link 'Предоплата', payment_path
+        = nav_link 'Новости', news_index_path
+        = nav_link 'Каталог', catalog_categories_path

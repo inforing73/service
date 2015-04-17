@@ -1,0 +1,2 @@
+$('#editNews').html("<%= escape_javascript(render partial: 'news/edit_modal', locals: {:@edit_news => @edit_news}) %>");
+$('#editNewsModal').modal('show');

@@ -1,0 +1,25 @@
+.slidebar.slidebar-right
+  h2.slidebar-header Навигация
+  ul.slidebar-menu
+    li
+      = link_to 'Главная', root_path, target: "_top"
+    li
+      = link_to 'Контакты', contact_path, target: "_top"
+    li
+      = link_to 'Цены', repairs_path, target: "_top"
+    li
+      = link_to "Предоплата", payment_path, target: "_top"
+    li
+      = link_to "Новости", news_index_path, target: "_top"
+    li
+      = link_to 'Каталог', catalog_categories_path, target: "_top"
+  h2.slidebar-header Социальные сети
+  .slidebar-social-icons
+    a.social-icon-ar.vk href="http://vk.com/inforing73" target="_blank" 
+      i.fa.fa-vk
+    a.social-icon-ar.twitter href="https://twitter.com/inforing73" target="_blank" 
+      i.fa.fa-twitter
+    a.social-icon-ar.facebook href="http://vk.com/inforing73" target="_blank" 
+      i.fa.fa-facebook
+    a.social-icon-ar.googleplus href="https://plus.google.com/+ИнфорингУльяновск/posts" target="_blank"
+      i.fa.fa-google-plus

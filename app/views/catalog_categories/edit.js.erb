@@ -1,0 +1,2 @@
+$('#editCategory').html("<%= escape_javascript(render partial: 'catalog_categories/edit_modal', locals: { :@category => @category}) %>");
+$('#editCategoryModal').modal('show');

@@ -1,0 +1,51 @@
+aside.footer
+  .container
+    .row
+      .col-md-4.sitemap
+        h3.title Карта сайта
+        ul.list-unstyled
+          li
+            = link_to "Главная", root_path, target: "_top"
+          li
+            = link_to "Контакты", contact_path, target: "_top"
+          li
+            = link_to "Цены", repairs_path, target: "_top"
+          li
+            = link_to "Предоплата", payment_path, target: "_top"
+          li
+            = link_to "Новости", news_index_path, target: "_top"
+          li
+            = link_to 'Заказать запчасть', order_path, target: "_top"
+          li
+            = link_to 'Каталог', catalog_categories_path, target: "_top"
+      .col-md-4.news
+        h3.title Новости
+        - @news.each do |n|
+          .media
+            = link_to image_tag(n.image.url(:thumb), alt: "n.description", class: "img-responsive media-object", width: 75, height: 75), news_path(n), class: "pull-left", target: "_top"
+            .media-body
+              h4.media-heading
+                = link_to n.title, news_path(n), target: "_top"
+              small 
+                = n.created_at.strftime("%d.%m.%Y")
+      .col-md-4.contacts
+        h3.title Контакты
+        address
+          p
+            | Город: Ульяновск
+          p
+            | Адрес: ул. Льва Толстого д. 60
+          p
+            | Телефон: (8422) 680-780
+          p
+            | E-mail: 
+            = link_to "support@inforing73.net", "mailto:support@inforing73.net"
+
+footer.copyright
+  p
+    | Обращаем Ваше, внимание! Сайт не является публичной офертой, в соответствии со статьей 437 п.2 Гражданского кодекса РФ. Точную и окончательную информацию о наличии и стоимости указанных товаров и услуг Вы можете получить, по телефону: (8422) 680-780.
+  br
+  p
+    | © 2014
+    = link_to " Inforing Software", "http://software.inforing73.net/", target: "_top"
+    | , inc. All rights reserved.

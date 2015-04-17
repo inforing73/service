@@ -1,0 +1,62 @@
+- provide(:title, "Купить запчасти для компьютеров, ноутбуков, планшетов, телефонов")
+- provide(:description, "Качественные запчасти для цифровой техники. Здесь Вы найдете деталь для любой техники за низкую цену.")
+- provide(:bread, "Категории товаров")
+
+.row
+	- @categories.order('title ASC').each do |c|
+		.col-md-3.item.text-center
+			= link_to catalog_category_path(c), class: "center-block", target: "_top" do
+				= image_tag c.image.url(:medium), alt: "#{c.description}", class: "animated fadeIn animation-delay-3 img-responsive center-block"
+				h4 
+					= c.title
+				- if admin?  
+					= link_to edit_catalog_category_path(c),remote: true do
+						i.fa.fa-pencil
+					= link_to catalog_category_path(c), method: :delete, remote: true, data: { confirm: "Вы уверены удалить категорию каталога #{c.title}?" } do
+						i.fa.fa-times 
+/.category
+	.row
+	  .col-md-3.hidden-sm.hidden-xs
+	    .ec-filters-menu
+	      h3.section-title Фильтр
+	      h4 Выберите Категорию
+	      ul
+	        li
+	          a.filter.active data-filter="all" href="javascript:void(0);" Все
+	        li
+	          a.filter data-filter=".category-smartphone" href="javascript:void(0);" Материнские платы
+	        li
+	          a.filter data-filter=".category-tv" href="javascript:void(0);" Процессоры
+	        li
+	          a.filter data-filter=".category-keyboard" href="javascript:void(0);" Блоки питания
+	        li
+	          a.filter data-filter=".category-graphic" href="javascript:void(0);" Клавиатуры
+	      h4 Сортировать
+	      ul
+	        li
+	          a.sort data-sort="price:asc" href="javascript:void(0);" По цене: По возрастанию
+	        li
+	          a.sort data-sort="price:desc" href="javascript:void(0);" По цене: По убыванию
+	        li
+	          a.sort data-sort="popularity:desc" href="javascript:void(0);" По популярности
+	        li
+	          a.sort data-sort="date:desc" href="javascript:void(0);" Новинки
+	  .col-md-9
+	    .row
+	      - @items.order('title ASC').each do |i|
+				  .col-sm-4
+				    .ec-box
+				      .ec-box-header
+				        = link_to "#{i.title}", catalog_item_path(i), target: "_top"
+				        - if admin?  
+									= link_to edit_catalog_item_path(i),remote: true do
+										i.admin-icon.fa.fa-pencil
+									= link_to catalog_item_path(i), method: :delete, remote: true, data: { confirm: "Вы уверены удалить товар #{i.title}?" } do
+										i.admin-icon.fa.fa-times  
+				      = link_to catalog_item_path(i), target: "_top" do
+				        = image_tag i.attached_images.first.image.url(:thumb), alt: "#{i.description}", class: "img-responsive" unless i.attached_images.blank?
+				      .ec-box-footer
+				      	.ec-price
+					        span.label.label-primary 
+					        	= i.price
+					        	i.fa.fa-rub

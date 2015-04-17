@@ -1,0 +1,17 @@
+-provide(:title, 'Ремонт ноутбуков, компьютеров, техники Apple, планшетов, телефонов')
+-provide(:description, 'Мы оказываем услуги по ремонту ноутбуков, компьютеров, планшетов, телефонов, навигаторов, игровых консолей, iPad, iPhone, Macbook как в офисе, так и на дому. Прошивка телефонов на базе Android, Windows Phone, iOS. Установка Windows, Linux, MacOS и программного обеспечения.')
+- provide(:bread, "Цены на наши услуги")
+
+.repairs
+	.row
+		- @repairs.order('title ASC').each do |r|
+			.col-md-3.item.text-center
+				= link_to repair_path(r), class: "center-block", target: "_top" do
+					= image_tag r.image.url(:medium), alt: "#{r.description}", class: "animated fadeIn animation-delay-3 img-responsive center-block"  
+					h4 
+						= r.title
+	.row
+		.col-md-12.text-center
+			- if admin?
+				= link_to new_repair_path, target: "_top" do
+					i.fa.fa-plus.fa-5x

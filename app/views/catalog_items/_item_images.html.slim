@@ -1,0 +1,4 @@
+- unless @item.attached_images.blank?
+	- @item.attached_images.each do |i|	
+		= image_tag i.image.url(:thumb)
+		= link_to "х", item_destroy_image_path(image_id: i.id),method: :delete, remote: true

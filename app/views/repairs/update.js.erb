@@ -1,0 +1,17 @@
+$('#editRepairModal').modal('hide');
+$('body').removeClass('modal-open');
+$('.modal-backdrop').remove();
+
+$('#repair').html("<%= escape_javascript(render partial: 'repairs/show_repair', locals: { :@repair => @repair, :@items => @items}) %>");
+$('#bread').html("<%= escape_javascript(render partial: 'layouts/breadcrumbs') %>");
+
+var heightPrice = [];
+$('.repair .item.active .pricing .content li.service_id').each(function(i) {
+	heightPrice.push($(this).height());
+});
+$('.repair .item.active .pricing .content li.price_id').each(function(i) {
+	var fix = i % heightPrice.length; 
+
+	$(this).height(heightPrice[fix] - (heightPrice[fix] / 2 - 10));
+	$(this).css('margin-top', (heightPrice[fix] / 2 - 10));
+});

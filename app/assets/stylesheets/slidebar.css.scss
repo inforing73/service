@@ -1,0 +1,158 @@
+html, body, #wrap, .slidebar {
+	margin: 0;
+	padding: 0;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+html, body {
+	width: 100%;
+	overflow-x: hidden;
+}
+
+html {
+	height: 100%;
+}
+
+body {
+	min-height: 100%;
+	position: relative;
+}
+
+#wrap {
+	width: 100%;
+	z-index: 1;
+	background-color: #fff;
+}
+
+.slidebar {
+	height: 100%;
+	overflow-y: auto; 
+	position: fixed;
+	top: 0;
+	z-index: 0;
+	visibility: hidden; 
+	background-color: #222;
+	-webkit-transition: all .5s ease;
+  -moz-transition: all .5s ease;
+  -ms-transition: all .5s ease;
+  -o-transition: all .5s ease;
+  transition: all .5s ease;
+}
+
+.slidebar-left {
+	left: 0; /* Set Slidebar to the left. */
+}
+
+.slidebar-right {
+	right: 0; /* Set Slidebar to the right. */
+}
+
+html.slidebar-static .slidebar,
+.slidebar.slidebar-static {
+	position: absolute; /* Makes Slidebars scroll naturally with the site, and unfixes them for Android Browser < 3 and iOS < 5. */
+}
+
+.slidebar.slidebar-active {
+	visibility: visible; 
+}
+
+.slidebar.slidebar-style-overlay {
+	z-index: 9999; /* Set z-index high to ensure it overlays any other site elements. */
+}
+
+	.slidebar {
+		width: 30%;
+	}
+	
+	.slidebar-width-thin {
+		width: 15%;
+	}
+	
+	.slidebar-width-wide {
+		width: 45%;
+	}
+
+@media (max-width: 480px) { /* Slidebar width on extra small screens. */
+	.slidebar {
+		width: 70%;
+	}
+	
+	.slidebar-width-thin {
+		width: 55%;
+	}
+	
+	.slidebar-width-wide {
+		width: 85%;
+	}
+}
+
+@media (min-width: 481px) { /* Slidebar width on small screens. */
+	.slidebar {
+		width: 55%;
+	}
+	
+	.slidebar-width-thin {
+		width: 40%;
+	}
+	
+	.slidebar-width-wide {
+		width: 70%;
+	}
+}
+
+@media (min-width: 768px) { /* Slidebar width on small screens. */
+	.slidebar {
+		width: 40%;
+	}
+	
+	.slidebar-width-thin {
+		width: 25%;
+	}
+	
+	.slidebar-width-wide {
+		width: 55%;
+	}
+}
+
+@media (min-width: 992px) { /* Slidebar width on medium screens. */
+	.slidebar {
+		width: 30%;
+	}
+	
+	.slidebar-width-thin {
+		width: 15%;
+	}
+	
+	.slidebar-width-wide {
+		width: 45%;
+	}
+}
+
+@media (min-width: 1200px) { /* Slidebar width on large screens. */
+	.slidebar {
+		width: 20%;
+	}
+	
+	.slidebar-width-thin {
+		width: 5%;
+	}
+	
+	.slidebar-width-wide {
+		width: 35%;
+	}
+}
+
+.slidebar-slide, #wrap, .slidebar {
+	-webkit-transition: -webkit-transform 400ms ease;
+	   -moz-transition: -moz-transform 400ms ease;
+	     -o-transition: -o-transform 400ms ease;
+	        transition: transform 400ms ease;
+	-webkit-transition-property: -webkit-transform, left, right; 
+	-webkit-backface-visibility: hidden; 
+}
+ 
+.slidebar-hide { 
+	display: none; /* May be applied to control classes when Slidebars is disabled over a certain width. */
+}

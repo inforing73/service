@@ -1,0 +1,9 @@
+h4 Обратный звонок
+.form-group
+  = form_tag callback_path, method: :get,remote: true do
+		.input-group
+			span.input-group-addon
+				i.fa.fa-phone
+			= text_field_tag :phone, nil, placeholder: "Номер телефона", class: "form-control"
+		= submit_tag "Отправить",class: "btn btn-primary pull-right" 
+		.clearfix

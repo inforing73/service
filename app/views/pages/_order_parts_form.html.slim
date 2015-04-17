@@ -1,0 +1,15 @@
+= form_tag order_parts_path, method: :post, remote: true, html: {:multipart => true} do 
+	.form-group
+		= label_tag :name, "Имя"
+		= text_field_tag :name, nil, placeholder: "Ваше имя", class: "form-control"
+	.form-group
+		= label_tag :email, "Контактные данные"
+		= text_field_tag :contacts, nil, placeholder: "Ваш телефон/E-mail", class: "form-control"
+	.form-group
+		= label_tag :email, "Описание"
+		= text_area_tag :description, nil, placeholder: "Модель/Part-номер/Описание", class: "form-control"
+	.form-group
+		= label_tag :email, "Изображение"
+		= file_field_tag 'images[]',multiple: true, class: "form-control"
+	= submit_tag "Отправить", class: "btn btn-ar btn-primary center-block" 
+	.clearfix

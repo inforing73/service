@@ -1,0 +1,15 @@
+.admin
+	.login-form
+		= link_to image_tag("logo.png", alt: "logo", title: "Инфоринг Ульяновск", class: "img-responsive center-block animated fadeIn animation-delay-4", width: 240, height: 112), "#", target: "_top"
+		- if admin?
+			= link_to 'Выйти', signout_path, method: :delete, class: "btn btn-primary center-block"
+		- else
+			.animated.fadeInUp.animation-delay-8
+				= form_tag sessions_path do 
+					.form-group
+						.input-group.login-input
+							span.input-group-addon
+								i.fa.fa-lock
+							= text_field_tag :password, nil, class: "form-control"
+					= submit_tag 'Войти', class: "btn btn-primary center-block", :disable_with => "Пожалуйста подождите.."
+					.clearfix

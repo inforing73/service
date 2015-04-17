@@ -1,0 +1,13 @@
+#editItemModal.modal.fade aria-hidden="true" aria-labelledby="editItemModalLabel" role="dialog" tabindex="-1" 
+	.modal-dialog.modal-sm
+		.modal-content
+			.modal-header
+				button.close aria-hidden="true" data-dismiss="modal" type="button"  ×
+				h4#editItemModalLabel.modal-title Редактирование ремонта
+			= form_tag(item_path(@item),method: :put, remote: true) do
+				.modal-body
+					= text_field_tag :title, @item.title, class: "form-control"
+					= hidden_field_tag :repair_id, @item.repair_id, class: "form-control"
+				.modal-footer
+					= submit_tag "Подтвердить", class: "btn btn-primary pull-left", :disable_with => "Пожалуйста подождите.." 
+					button.btn.btn-ar.btn-default data-dismiss="modal" type="button"  Закрыть

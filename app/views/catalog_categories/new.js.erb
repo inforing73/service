@@ -1,0 +1,2 @@
+$('#newCategory').html("<%= escape_javascript(render partial: 'catalog_categories/new_modal', locals: { :@category => @category}) %>");
+$('#newCategoryModal').modal('show');

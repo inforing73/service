@@ -1,0 +1,26 @@
+-provide(:title, @show_news.title)
+-provide(:description, @show_news.description)
+- provide(:bread, @show_news.title)
+
+.posts
+	.container
+	  .row
+	    .col-md-12
+	      section
+	        h2.page-header
+	        	= @show_news.title
+	        = image_tag @show_news.image.url(:medium), class: "img-responsive"
+	        p
+	          = simple_format(@show_news.description)
+	      section
+	        .panel.panel-default
+	          .panel-body
+					    a.social-icon-ar.vk href="http://vk.com/inforing73" target="_blank" 
+					      i.fa.fa-vk
+					    a.social-icon-ar.twitter href="https://twitter.com/inforing73" target="_blank" 
+					      i.fa.fa-twitter
+					    a.social-icon-ar.facebook href="http://vk.com/inforing73" target="_blank" 
+					      i.fa.fa-facebook
+					    a.social-icon-ar.googleplus href="https://plus.google.com/+ИнфорингУльяновск/posts" target="_blank" 
+					      i.fa.fa-google-plus
+    

@@ -1,0 +1,39 @@
+.container
+	- @show_news.each do |n|
+		.row
+			.col-xs-12
+				article.item.animated.fadeInDown.animation-delay-6
+					.panel.panel-default
+						.panel-body
+							h3.title
+								= link_to news_path(n), target: "_top" do
+									= n.title
+								- if admin?
+									span
+										= link_to edit_news_path(n), remote: true do
+											i.fa.fa-pencil
+									span  
+										= link_to news_path(n), method: :delete, remote:true, data: { confirm: "Вы уверены удалить новость #{n.title}?" } do
+											i.fa.fa-times
+							.row
+								.col-md-6
+									= image_tag n.image.url(:medium), class: "img-responsive"
+								.col-md-6
+									p 
+										= truncate(simple_format(n.description), length: 500, separator: ' ', escape: false)
+						.panel-footer
+							.row
+								.col-lg-10.col-md-9.col-sm-4
+									i.fa.fa-clock-o
+									= n.created_at.strftime("Добавлено %d.%m.%Y")
+									i.fa.fa-user
+									= link_to "Администратор", "javascript:void(0);"
+									i.fa.fa-folder-open
+									- n.tags.split().each do |t|
+										= link_to "javascript:void(0);" do 
+											= t
+											|  
+								.col-lg-2.col-md-3.col-sm-4
+									= link_to news_path(n), class: "pull-right" do
+										| Подробнее
+										

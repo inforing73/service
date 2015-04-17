@@ -1,0 +1,60 @@
+-provide(:title, 'Свяжитесь с нами и  Вы получите качественный ремонт своего аппарата')
+-provide(:description, 'Адрес: г. Ульяновск ул. Льва Толстого д.60. Телефон: +7 (8422) 680-780. E-mail: support@inforing73.net.')
+- provide(:bread, "Как связаться с нами?")
+
+.contact
+	.container
+		.row
+			.col-md-8
+				h2.section-title 
+					| Связаться с нами
+			.col-md-4
+				.call		
+					= link_to "javascript:void(0);", class: "animated bounceInRight animation-delay-4" do
+						h3
+							i.fa.fa-phone-square
+							|  Обратный звонок
+						.form-group.pull-right.animated.fadeInUp
+							= form_tag callback_path, method: :get do
+								.input-group
+									= text_field_tag :phone, nil, placeholder: "Номер телефона", class: "form-control" 
+									span.input-group-btn
+										= submit_tag "Отправить",class: "btn btn-primary" 		
+			.col-md-8
+				section
+					#feedback
+						= render 'pages/feedback_form'
+			.col-md-4
+				section
+					.panel.panel-primary
+						.panel-heading
+							i.fa.fa-envelope-o
+							| Дополнительная информация
+						.panel-body
+							h4.section-title Контакты
+							address
+								p 
+									strong Inforing Service
+								p
+									| Адрес: г. Ульяновск ул. Льва Толстого д.60
+								p
+									| Телефон: 8 (8422) 680-780
+								p
+									| Моб.телефон: 8-937-881-69-07
+								p
+									| E-mail: 
+									= link_to "support@inforing73.net", "mailto:support@inforing73.net"
+								p
+									| Skype: inforing73
+							h4.section-title График работы
+							ul.list-unstyled
+								li
+									strong Пн - Пт:
+									|  9:00 - 19:00
+								li
+									strong Сб - Вс:
+									|  11:00 - 17:00
+		hr.dotted
+			section
+				.well.well-sm
+					<iframe width="100%" height="350" style="pointer-events:none" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2327.5307064835097!2d48.394669!3d54.3122486!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x415d3712d3142f5f%3A0xc4ec86979dd96f3c!2z0YPQuy4g0JvRjNCy0LAg0KLQvtC70YHRgtC-0LPQviwgNjAsINCj0LvRjNGP0L3QvtCy0YHQuiwg0KPQu9GM0Y_QvdC-0LLRgdC60LDRjyDQvtCx0LvQsNGB0YLRjCwg0KDQvtGB0YHQuNGPLCA0MzIwMDA!5e0!3m2!1sru!2sus!4v1409227189020"></iframe>

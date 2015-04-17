@@ -1,0 +1,51 @@
+.empty
+header.hidden-xs
+	.container
+		= link_to image_tag("logo.png", alt: "Сервисный центр Инфоринг в Ульяновске", title: "Инфоринг Ульяновск", class: "img-responsive animated fadeIn animation-delay-4 full", width: 240, height: 112), root_path, target: "_top"
+		= link_to image_tag("mini-logo.png", alt: "Сервисный центр Инфоринг в Ульяновске", title: "Инфоринг Ульяновск", class: "img-responsive shrink", width: 240, height: 112), root_path, target: "_top"
+		nav.top-nav
+			ul.animated.fadeIn.animation-delay-7.social.hidden-sm
+				li
+					= link_to "http://vk.com/inforing73", class: "vk", target: "_blank" do
+						i.fa.fa-vk
+				li
+					= link_to "https://twitter.com/inforing73", class: "twitter", target: "_blank" do
+						i.fa.fa-twitter
+				li
+					= link_to "http://vk.com/inforing73", class: "facebook", target: "_blank" do
+						i.fa.fa-facebook
+				li
+					= link_to "https://plus.google.com/+ИнфорингУльяновск/posts", class: "googleplus", target: "_blank" do 
+						i.fa.fa-google-plus
+			.dropdown.animated.fadeInDown.animation-delay-8
+				a.dropdown-toggle data-toggle="dropdown" href="#" 
+					i.fa.fa-phone-square
+					|  Обратный звонок
+				.dropdown-menu.dropdown-menu-right.dropdown-call-box.animated.fadeInUp	
+					h4 Обратный звонок
+					.form-group
+					  = form_tag callback_path, method: :get do
+							.input-group
+								span.input-group-addon
+									i.fa.fa-phone
+								= text_field_tag :phone, nil, placeholder: "Номер телефона", class: "form-control"
+							= submit_tag "Отправить",class: "btn btn-primary pull-right" 
+							.clearfix
+			.row.contact	
+				.col-md-7
+					h3.animated.bounceInLeft.animation-delay-8
+						small 8 (8422)
+						|  680-780
+					.address.animated.bounceInLeft.animation-delay-10
+						h4
+							| г. Ульяновск
+					.address.animated.bounceInLeft.animation-delay-10
+						h4
+							| ул. Льва Толстого д. 60
+				.col-md-5.graphic.animated.tada.animation-delay-15.hidden-sm
+					h4
+						| Режим работы:
+					h4
+						| Пн-Пт: 9:00-19:00
+					h4
+						| Сб-Вс: 11:00-17:00

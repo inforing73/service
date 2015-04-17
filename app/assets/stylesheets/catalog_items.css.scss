@@ -1,0 +1,26 @@
+.category-item {
+	i {
+		padding: 0 3px;
+	}
+
+	h3 {
+		span {
+			color: #666;
+		}
+	}
+
+	.e-price {
+	  font-size: 1.4em;
+	  padding: 15px;
+	  background-color: #da1111;
+	  color: #fff;
+	  margin-bottom: 20px;
+	  text-align: center;
+	}
+	
+	#bx-pager a {
+	  display: inline-block;
+	  border: solid 1px #ddd;
+	  padding: 3px;
+	}
+}

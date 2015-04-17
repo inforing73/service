@@ -1,0 +1,22 @@
+- provide(:title, "Купить #{@category.title}")
+- provide(:description, @category.description)
+- provide(:bread, @category.title)
+
+.row
+	- @items.order('title ASC').each do |i|
+	  .col-sm-4
+	    .ec-box
+	      .ec-box-header
+	        = link_to "#{i.title}", catalog_item_path(i), target: "_top"
+	        - if admin?  
+						= link_to edit_catalog_item_path(i),remote: true do
+							i.admin-icon.fa.fa-pencil
+						= link_to catalog_item_path(i), method: :delete, remote: true, data: { confirm: "Вы уверены удалить товар #{i.title}?" } do
+							i.admin-icon.fa.fa-times  
+	      = link_to catalog_item_path(i), target: "_top" do
+	        = image_tag i.attached_images.first.image.url(:thumb), alt: "#{i.description}", class: "img-responsive" unless i.attached_images.blank?
+	      .ec-box-footer
+	      	.ec-price
+		        span.label.label-primary 
+		        	= i.price
+		        	i.fa.fa-rub
